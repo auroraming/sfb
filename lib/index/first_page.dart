@@ -24,7 +24,7 @@ import 'package:sufenbao/service.dart';
 import 'package:sufenbao/util/custom.dart';
 import 'package:sufenbao/widget/CustomWidgetPage.dart';
 
-import '../login/login_shanyan.dart';
+// import '../login/login_shanyan.dart';
 import '../me/listener/WxPayNotifier.dart';
 import '../page/product_details.dart';
 import '../shop/ali_face.dart';
@@ -110,7 +110,7 @@ class _FirstPageState extends State<FirstPage> {
         }
       });
       initFaceService();
-      await LoginShanyan.getInstance().init();
+      // await LoginShanyan.getInstance().init();
       if(!this.init) {
         InitModel initModel = await FlutterAlibc.initAlibc(version:packageInfo.version,appName:APP_NAME);
       }

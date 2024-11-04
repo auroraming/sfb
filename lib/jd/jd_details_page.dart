@@ -122,8 +122,7 @@ class _JDDetailsPageState extends State<JDDetailsPage> {
   ///类似商品
   var listSimilarGoodsByOpenDm = DataModel();
   Future<int> listSimilarGoodsByOpen() async {
-    var res = await BService.goodsSearch(1, title,)
-        .catchError((v) {
+    var res = await BService.goodsSearch(1, title,).catchError((v) {
       listSimilarGoodsByOpenDm.toError('网络异常');
     });
     if (res != null) {

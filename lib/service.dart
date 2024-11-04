@@ -56,6 +56,7 @@ abstract class BService {
 
     return res.data['data'];
   }
+
   static Future<List> goodsSearch(page, keywords, {sort}) async {
     var res = await suClient.get(
       API.goodsSearch,

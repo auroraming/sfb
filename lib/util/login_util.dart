@@ -6,7 +6,7 @@
 
 import 'package:flutter/widgets.dart';
 import 'package:sufenbao/util/toast_utils.dart';
-import 'package:sufenbao/login/login_shanyan.dart';
+// import 'package:sufenbao/login/login_shanyan.dart';
 import 'package:sufenbao/util/global.dart';
 
 import '../me/listener/PersonalNotifier.dart';
@@ -47,13 +47,13 @@ onTapLogin(context, url, {args}) {
     if(args == null) {
       args = {};
     }
-    if(LoginShanyan.initSuc) {
-      LoginShanyan.getInstance().openLoginAuthPlatformState();
-      return;
-    } else {
-      args['prePage'] = url;
-      url = '/login';
-    }
+    // if(LoginShanyan.initSuc) {
+    //   LoginShanyan.getInstance().openLoginAuthPlatformState();
+    //   return;
+    // } else {
+    //   args['prePage'] = url;
+    //   url = '/login';
+    // }
   }
   Navigator.pushNamed(context, url, arguments: args);
 }
@@ -63,13 +63,13 @@ onTapDialogLogin(BuildContext context, {fun, args}) async {
     if(args == null) {
       args = {};
     }
-    if(LoginShanyan.initSuc) {
-      LoginShanyan.getInstance().openLoginAuthPlatformState();
-      return;
-    } else {
+    // if(LoginShanyan.initSuc) {
+    //   LoginShanyan.getInstance().openLoginAuthPlatformState();
+    //   return;
+    // } else {
 
       Navigator.pushNamed(context, '/login', arguments: args);
-    }
+    // }
   } else {
     if(fun != null) {
       fun();
