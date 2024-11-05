@@ -244,8 +244,8 @@ class _FirstPageState extends State<FirstPage> {
     });
     if (res != null) {
       var json = jsonDecode(res.body);
-      var list = json['data']['list'];
-      var totalNum = int.parse('${json['data']['totalNum']}');
+      var list = json['data']['data']['list'];
+      var totalNum = int.parse('${json['data']['data']['totalNum']}');
       searchDm.addList(list, isRef, totalNum);
     }
     setState(() {});

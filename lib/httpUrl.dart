@@ -24,7 +24,7 @@ abstract class API {
   static const rankingList = '/tao/ranking/list';
   static const shopConvert = '/tao/shop/convert';
   static const brandList = '/tao/brand/list';
-  static const goodsCate = '/tao/goods/category';
+  static const goodsCate = '/tao/goods/category'; // 首页目录
   static const activityParse = '/tao/activity/parse';
   static const tbAuthQuery = '/user/auth/query';
 

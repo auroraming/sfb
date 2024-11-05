@@ -54,7 +54,7 @@ abstract class BService {
       },
     );
 
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<List> goodsSearch(page, keywords, {sort}) async {
@@ -66,7 +66,7 @@ abstract class BService {
         'sort': sort,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   ///首页热销榜
@@ -74,14 +74,14 @@ abstract class BService {
     var res = await suClient.get(
       API.cmsHot,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   ///首页限时秒杀
   static Future<Map> homeCardDDQ() async {
     var res = await suClient.get(
       API.cmsDdq,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> getGoodsWord(goodsId, {uid}) async {
     await setAuthInfo();
@@ -92,7 +92,7 @@ abstract class BService {
         'uid': uid
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<Map> getGoodsDetail(goodsId) async {
@@ -102,14 +102,14 @@ abstract class BService {
         'goodsId': goodsId
       },
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
 
   static Future<List> getCityList() async {
     var res = await suClient.get(
       API.cityList,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future addressEdit(data) async {
     var res = await suClient.post(
@@ -135,20 +135,20 @@ abstract class BService {
     var res = await suClient.get(
         API.addressList,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> addressDefault() async {
     var res = await suClient.get(
       API.addressDefault,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> createOrder(data) async {
     var res = await suClient.post(
         API.createOrder,
         data: data
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> parseContent(content, auth) async {
     await setAuthInfo();
@@ -158,7 +158,7 @@ abstract class BService {
         'content': content
       }, options: new Options(receiveTimeout: Duration(milliseconds: 10000))
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map?> goodsDetailJD(goodsId) async {
     var res = await suClient.get(
@@ -167,10 +167,10 @@ abstract class BService {
         'goodsId': goodsId
       },
     );
-    if(res.data['data'] == null) {
+    if(res.data['data']['data'] == null) {
       return null;
     }
-    return res.data['data'][0];
+    return res.data['data']['data'][0];
   }
 
   static Future<String> goodsWordJD(itemId, couponLink, materialUrl) async {
@@ -183,7 +183,7 @@ abstract class BService {
         'materialUrl': materialUrl
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> goodsDetailPDD(goodsSign) async {
     var res = await suClient.get(
@@ -192,7 +192,7 @@ abstract class BService {
         'goodsSign': goodsSign
       },
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
   static Future<Map> goodsWordPDD(goodsSign, {uid}) async {
     await  setAuthInfo();
@@ -203,7 +203,7 @@ abstract class BService {
         'uid': uid
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> orderSubmit(orderId) async {
     await  setAuthInfo();
@@ -213,13 +213,13 @@ abstract class BService {
         'orderId': orderId
       },
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map<String, dynamic>> homeUrl() async {
     var res = await suClient.get(
       API.homeUrl,
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future setAuthInfo() async {
     String token = await Global.getToken();
@@ -236,7 +236,7 @@ abstract class BService {
         'id': id
       },
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map<String, dynamic>> userinfo({baseInfo = false}) async {
     var token = await Global.getToken();
@@ -254,7 +254,7 @@ abstract class BService {
     if(!res.data['success']) {
       Global.clearUser();
     }
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
   static Future<Map<String, dynamic>> userWxProfile() async {
     await setAuthInfo();
@@ -262,7 +262,7 @@ abstract class BService {
         API.userWxProfile,
 
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
 
 
@@ -278,7 +278,7 @@ abstract class BService {
           'uid': uid
       }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> payBind({payType = 0}) async {
     String token = await Global.getToken();
@@ -292,7 +292,7 @@ abstract class BService {
           'payType': payType
         }
     );
-    return res.data;
+    return res.data['data'];
   }
 
   static Future<Map> modifyPhone(phone) async {
@@ -303,7 +303,7 @@ abstract class BService {
         'phone': phone
       }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future vipinfo() async {
     String token = await Global.getToken();
@@ -314,7 +314,7 @@ abstract class BService {
     var res = await suClient.get(
         API.vipinfo
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> userFee() async {
     var token = await Global.getToken();
@@ -325,7 +325,7 @@ abstract class BService {
     var res = await suClient.get(
       API.userfee,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> userFeeDetail({type = 1, cid=1, uid}) async {
     String token = await Global.getToken();
@@ -341,7 +341,7 @@ abstract class BService {
         'cid': cid
       }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<bool> hasUnlockOrder() async {
     String token = await Global.getToken();
@@ -352,28 +352,28 @@ abstract class BService {
     var res = await suClient.get(
       API.hasUnlockOrder,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map<String, dynamic>> commissionInfo() async {
     await setAuthInfo();
     var res = await suClient.get(
       API.commissionInfo,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> userDelete() async {
     await setAuthInfo();
     var res = await suClient.delete(
       API.userDelete,
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> userSpread() async {
     await setAuthInfo();
     var res = await suClient.get(
       API.userSpread,
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
   static Future<String> uploadAvatar(formData) async {
     await setAuthInfo();
@@ -381,7 +381,7 @@ abstract class BService {
       API.fileUpload,
      data: formData,
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> uploadCard(formData, type, {angle = 0}) async {
     await setAuthInfo();
@@ -393,7 +393,7 @@ abstract class BService {
         'angle': angle
       }, options: new Options(receiveTimeout: Duration(milliseconds: 30000))
     );
-    return res.data;
+    return res.data['data'];
   }
 
   static Future<Map> userEdit(data,{token}) async {
@@ -406,7 +406,7 @@ abstract class BService {
       API.userEdit,
       data: data,
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future taoOrders(page, Map param, {innerType=0, level = 0}) async {
     await  setAuthInfo();
@@ -421,7 +421,7 @@ abstract class BService {
       },
         options: new Options(receiveTimeout: Duration(milliseconds: 10000))
     );
-    return res.data;
+    return res.data['data'];
   }
 
   static Future<List> orderTab(level, innerType) async {
@@ -433,14 +433,14 @@ abstract class BService {
         'innerType': innerType
       }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> orderTabFirst() async {
     await  setAuthInfo();
     var res = await suClient.get(
       API.orderTabFirst,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<String> shortLink(link) async {
     await setAuthInfo();
@@ -451,7 +451,7 @@ abstract class BService {
       }
     );
     if(res.data['success']) {
-      return res.data['data']['short_url'];
+      return res.data['data']['data']['short_url'];
     }
     return '';
   }
@@ -463,7 +463,7 @@ abstract class BService {
         'id': goodsId
       },
     );
-    return res.data['data']??[];
+    return res.data['data']['data']??[];
   }
   static Future integralOrders(page) async {
     await  setAuthInfo();
@@ -473,7 +473,7 @@ abstract class BService {
           'page': page
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future moneyList(page, {category = 'integral', type, platform, unlockStatus}) async {
     await  setAuthInfo();
@@ -487,7 +487,7 @@ abstract class BService {
           'unlockStatus': unlockStatus
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future energyList(page) async {
     await  setAuthInfo();
@@ -497,7 +497,7 @@ abstract class BService {
           'page': page,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future wechatAppLogin(code) async {
     var res = await suClient.get(
@@ -506,7 +506,7 @@ abstract class BService {
           'code': code
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future wechatLogin(code) async {
     var res = await suClient.get(
@@ -515,7 +515,7 @@ abstract class BService {
           'code': code
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future appleLogin(AuthorizationCredentialAppleID credential) async {
     var res = await suClient.post(
@@ -525,14 +525,14 @@ abstract class BService {
           'realName': '${credential.familyName}${credential.givenName}',
           'email': credential.email
         });
-    return res.data;
+    return res.data['data'];
   }
   static Future loginMustCode() async {
     var res = await suClient.get(
         API.loginmustcode,
     );
-    Global.loginMustCode = res.data['data'];
-    return res.data;
+    Global.loginMustCode = res.data['data']['data'];
+    return res.data['data'];
   }
   static Future wechatBinding(code) async {
     var res = await suClient.get(
@@ -541,7 +541,7 @@ abstract class BService {
           'code': code
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> alipayBinding(code) async {
     var res = await suClient.get(
@@ -550,7 +550,7 @@ abstract class BService {
           'code': code
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<String> alipayCode() async {
     var res = await suClient.get(
@@ -558,7 +558,7 @@ abstract class BService {
         queryParameters: {
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future fans(page, {uid, grade=0,keyword}) async {
     await  setAuthInfo();
@@ -571,14 +571,14 @@ abstract class BService {
           'keyword':keyword
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<List> userShareImages() async {
     await setAuthInfo();
     var res = await suClient.get(
         API.userShare
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> bindMobile(mobile, captcha) async {
     await  setAuthInfo();
@@ -589,13 +589,13 @@ abstract class BService {
           'captcha': captcha,
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future hotWords() async {
     var res = await suClient.get(
         API.hotWords
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future jdList(page, {keyword, sortName, sort}) async {
     var res = await suClient.get(
@@ -607,7 +607,7 @@ abstract class BService {
           'sort': sort,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future jdBrandList(page) async {
     var res = await suClient.get(
@@ -616,7 +616,7 @@ abstract class BService {
           'pageId': page,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future jdNinesList(page) async {
     var res = await suClient.get(
@@ -625,7 +625,7 @@ abstract class BService {
           'pageId': page,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future jdRankList(page) async {
     var res = await suClient.get(
@@ -635,7 +635,7 @@ abstract class BService {
           'pageSize': 10
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future ddq(roundTime) async {
@@ -645,13 +645,13 @@ abstract class BService {
           'roundTime': roundTime,
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future rankingCate() async {
     var res = await suClient.get(
         API.rankingCate,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future rankingList(rankType,pageId, {cid, pageSize = 10, }) async {
     var res = await suClient.get(
@@ -663,7 +663,7 @@ abstract class BService {
           'pageSize': pageSize
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future miniList(pageId, {keyword=''}) async {
@@ -674,7 +674,7 @@ abstract class BService {
           'pageId': pageId,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<List> pddList(cateId,pageId) async {
@@ -685,13 +685,13 @@ abstract class BService {
           'pageId': pageId,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future pddNav() async {
     var res = await suClient.get(
         API.pddNav,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future pddCate({parentId = 0}) async {
     var res = await suClient.get(
@@ -700,7 +700,7 @@ abstract class BService {
           'parentId':parentId
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
 
@@ -716,19 +716,19 @@ abstract class BService {
           'firstCid' : firstCid
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future dyNav() async {
     var res = await suClient.get(
       API.dyNav,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future dyCate() async {
     var res = await suClient.get(
       API.dyCate,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> dyGoodsDetail(goodsId) async {
     var res = await suClient.get(
@@ -737,7 +737,7 @@ abstract class BService {
         'goodsId': goodsId
       },
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
   static Future<Map> dyWord(productUrl, {uid}) async {
     var res = await suClient.get(
@@ -747,7 +747,7 @@ abstract class BService {
         'uid': uid
       },
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
   static Future<Map> vipGoodsDetail(goodsId) async {
     await setAuthInfo();
@@ -757,7 +757,7 @@ abstract class BService {
         'goodsId': goodsId
       },
     );
-    return res.data['data'][0];
+    return res.data['data']['data'][0];
   }
 
   static Future<Map> goodsBigList(pageId, params, {pageSize}) async {
@@ -769,13 +769,13 @@ abstract class BService {
         'pageSize': pageSize,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> pickCate() async {
     var res = await suClient.get(
       API.pickCate,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> pickList(pageId, cateId) async {
     var res = await suClient.get(
@@ -785,7 +785,7 @@ abstract class BService {
         'cateId': cateId,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> cmsCate(id) async {
     var res = await suClient.get(
@@ -794,7 +794,7 @@ abstract class BService {
         'id': id,
       },
     );
-    return res.data['data']['floor'];
+    return res.data['data']['data']['floor'];
   }
 
   static Future shopConvert(shopId, shopName) async {
@@ -805,7 +805,7 @@ abstract class BService {
           'shopName': shopName,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<Map> brandList(pageId, cid) async {
@@ -816,7 +816,7 @@ abstract class BService {
         'cid': cid,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> brandGoodsList(brandId) async {
     var res = await suClient.get(
@@ -827,26 +827,26 @@ abstract class BService {
         'brandId': brandId,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<List> goodsCategory() async {
     var res = await suClient.get(
       API.goodsCate,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> nineCate() async {
     var res = await suClient.get(
       API.nineCate,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> nineTop() async {
     var res = await suClient.get(
       API.nineTop,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> nineList(pageId, cid, {pageSize = 10}) async {
     var res = await suClient.get(
@@ -864,19 +864,19 @@ abstract class BService {
     var res = await suClient.get(
       API.banner,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> banners() async {
     var res = await suClient.get(
       API.banners,
     );
-    return res.data;
+    return res.data['data']['bannerInfo'];
   }
   static Future<List> tiles() async {
     var res = await suClient.get(
       API.tiles,
     );
-    return res.data;
+    return res.data['data']['tilesInfo'];
   }
   static Future<Map> kuCustomCate(id) async {
     var res = await suClient.get(
@@ -885,20 +885,20 @@ abstract class BService {
         'id': id,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<List> kuCustomList(param) async {
     var res = await suClient.get(
       API.customList,
       queryParameters: param,
     );
-    return res.data['data']['list'];
+    return res.data['data']['data']['list'];
   }
   static Future<Map> dyBannerWord() async {
     var res = await suClient.get(
       API.dyBannerWord,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> activityDetail(id) async {
     var res = await suClient.get(
@@ -907,7 +907,7 @@ abstract class BService {
         'id': id,
       },
     );
-    return res.data['data']['meeting'];
+    return res.data['data']['data']['meeting'];
   }
   static Future<Map> taoActivityParse(id) async {
     var res = await suClient.get(
@@ -916,7 +916,7 @@ abstract class BService {
         'promotionSceneId': id,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future vipList(page, {keyword, fieldName='SALES', order=1}) async {
@@ -930,7 +930,7 @@ abstract class BService {
           'order': order
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<Map> goodsWordVIP(itemUrl, adCode, {uid}) async {
@@ -949,7 +949,7 @@ abstract class BService {
         'adCode': adCode
       },
     );
-    return res.data['data']['urlInfoList'][0];
+    return res.data['data']['data']['urlInfoList'][0];
   }
   static Future pddSearch(page, {catId, keyword, sortType = 0, listId}) async {
     var res = await suClient.get(
@@ -962,7 +962,7 @@ abstract class BService {
           'catId': catId
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> tbAuthQuery() async {
     String token = await Global.getToken();
@@ -973,7 +973,7 @@ abstract class BService {
     var res = await suClient.get(
       API.tbAuthQuery,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<int> pddAuthQuery() async {
     String token = await Global.getToken();
@@ -984,14 +984,14 @@ abstract class BService {
     var res = await suClient.get(
         API.pddAuthQuery,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> pddAuth() async {
     await setAuthInfo();
     var res = await suClient.get(
       API.pddAuth,
     );
-    List list = res.data['data'];
+    List list = res.data['data']['data'];
     if(list != null && list.isNotEmpty) {
       return list[0];
     }
@@ -1007,7 +1007,7 @@ abstract class BService {
           'searchType': searchType,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future vipSearch(page, {keyword, fieldName, order}) async {
@@ -1021,7 +1021,7 @@ abstract class BService {
           'order': order
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<Map> userGrade() async {
@@ -1029,7 +1029,7 @@ abstract class BService {
         API.userGrade,
 
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<Map> extract(int type, String amount,{bankId}) async {
@@ -1048,7 +1048,7 @@ abstract class BService {
           'bankId':bankId
         }
     );
-    return res.data;
+    return res.data['data'];
   }
 
   static Future<Map> extractList(page, {size=10, sort='create_time,desc'}) async {
@@ -1060,7 +1060,7 @@ abstract class BService {
         'sort': sort
       }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> pay(rechargeId, platform,{payType = 1, uid,bankId, type = 0}) async {
     //type 订单类型 0=年卡
@@ -1077,7 +1077,7 @@ abstract class BService {
           'type': type
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future rechargeResult(orderId, result) async {
     await setAuthInfo();
@@ -1088,7 +1088,7 @@ abstract class BService {
           'result': result,
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> payIos(rechargeId, platform, uid, {type = 0}) async {
     return pay(rechargeId, platform, payType: 0, uid: uid, type: type);
@@ -1114,7 +1114,7 @@ abstract class BService {
           'platform': platform,
         }
     );
-    return res.data['data']?? {};
+    return res.data['data']['data']?? {};
   }
   static Future<Map> payNotifyIOS(orderSn, receipt) async {
     await setAuthInfo();
@@ -1125,7 +1125,7 @@ abstract class BService {
           'receipt': receipt,
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> verifyIOS(receipt) async {
     await setAuthInfo();
@@ -1138,13 +1138,13 @@ abstract class BService {
           "content-type":"application/json"
         })
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<List> hotWordsCenter() async {
     var res = await suClient.get(
       API.hotWordsCenter,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future historySave(keyword) async {
@@ -1160,7 +1160,7 @@ abstract class BService {
       API.userHistorySave,
       data: keyword
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<List> histories() async {
     String token = await Global.getToken();
@@ -1171,7 +1171,7 @@ abstract class BService {
     var res = await suClient.get(
         API.userHistory,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future historyClear() async {
@@ -1179,7 +1179,7 @@ abstract class BService {
     var res = await suClient.delete(
         API.userHistoryClear,
     );
-    return res.data;
+    return res.data['data'];
   }
 
   static Future<Map> collectList(page, {size = 10}) async {
@@ -1192,7 +1192,7 @@ abstract class BService {
         'type': 'collect'
       }
     );
-    return res.data;
+    return res.data['data'];
   }
 
   static Future collectAdd(id, category, img, title, startPrice, endPrice, {originalId}) async {
@@ -1208,7 +1208,7 @@ abstract class BService {
         'endPrice': endPrice,
         'originalId': originalId
       });
-    return res.data;
+    return res.data['data'];
   }
 
   static Future collectDel(id) async {
@@ -1218,7 +1218,7 @@ abstract class BService {
         data: {
           'id': id,
         });
-    return res.data;
+    return res.data['data'];
   }
   static Future collect(id) async {
     String token = await Global.getToken();
@@ -1231,7 +1231,7 @@ abstract class BService {
         queryParameters: {
           'id': id
         });
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
 
@@ -1256,7 +1256,7 @@ abstract class BService {
           'session': session
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> spreadHb(orderId, type, {skuId}) async {
     String token = await Global.getToken();
@@ -1272,7 +1272,7 @@ abstract class BService {
           'skuId': skuId
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future loginShanyan(token) async {
     int type = Platform.isAndroid ? 1 : 2;
@@ -1282,7 +1282,7 @@ abstract class BService {
           'token': token,
           'type': type
         });
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> getAliFaceTicket(certName, certNo, phone) async {
     var res = await suClient.post(
@@ -1293,7 +1293,7 @@ abstract class BService {
           "phone": phone
       }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> getAliFaceResult(certifyId, phone) async {
     Map data = {"certifyId":certifyId,"phone":phone};
@@ -1303,7 +1303,7 @@ abstract class BService {
       data: enc,
         options: new Options(receiveTimeout: Duration(milliseconds: 30000))
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<Map> extractConfig() async {
@@ -1311,21 +1311,21 @@ abstract class BService {
     var res = await suClient.get(
         API.extractConfig,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> payConfig() async {
     await setAuthInfo();
     var res = await suClient.get(
       API.payConfig,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> updateConfig() async {
     await setAuthInfo();
     var res = await suClient.get(
       API.updateConfig,
     );
-    return res.data['data']??{};
+    return res.data['data']['data']??{};
   }
 
   static Future<Map> getEnergy() async {
@@ -1333,14 +1333,14 @@ abstract class BService {
     var res = await suClient.get(
       API.userEnergy,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> getEnergyDetail() async {
     await setAuthInfo();
     var res = await suClient.get(
       API.userEnergyDetail,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> setEnergy(dayEnergy, platform) async {
     await setAuthInfo();
@@ -1351,7 +1351,7 @@ abstract class BService {
         'platform': platform
       }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   //美团活动和转链
@@ -1359,13 +1359,13 @@ abstract class BService {
     var res = await suClient.get(
         API.waimaiActivityList
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future eleActivityList() async {
     var res = await suClient.get(
         API.eleActivityList
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future waimaiActivityWord(String activityId, int type) async {
     await setAuthInfo();
@@ -1376,7 +1376,7 @@ abstract class BService {
           'type': type
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
 
@@ -1385,7 +1385,7 @@ abstract class BService {
     var res = await suClient.get(
         API.mtActivityList
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future mtActivityWord(String activityId) async {
     await setAuthInfo();
@@ -1395,7 +1395,7 @@ abstract class BService {
           'activityId': activityId,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   // 格式化数值
@@ -1501,7 +1501,7 @@ abstract class BService {
           'extract': extract,
         }
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
   static Future<Map> bindBankConfirm(code, bizSn,orderId) async {
     await setAuthInfo();
@@ -1513,7 +1513,7 @@ abstract class BService {
           'orderId': orderId,
         }
     );
-    return res.data;
+    return res.data['data'];
   }
   static Future<Map> getBankInfo(bankNo) async {
     await setAuthInfo();
@@ -1542,7 +1542,7 @@ abstract class BService {
     var res = await suClient.get(
         API.supportBank,
     );
-    return res.data['data']??[];
+    return res.data['data']['data']??[];
   }
 
   static Future<Map> cashbindBankcard({cardNo,phone,id}) async {
@@ -1622,7 +1622,7 @@ abstract class BService {
         'id': id,
       },
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
   static Future<String> getWechatId() async {
@@ -1630,7 +1630,7 @@ abstract class BService {
     var res = await suClient.get(
         API.getWechatId,
     );
-    return res.data['data'];
+    return res.data['data']['data'];
   }
 
 
@@ -1642,6 +1642,6 @@ abstract class BService {
           'feedback': content,
         }
     );
-    return res.data;
+    return res.data['data'];
   }
 }

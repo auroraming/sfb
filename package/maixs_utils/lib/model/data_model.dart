@@ -91,7 +91,7 @@ class DataModel<T> {
       addPage(res.data);
       List list;
       try {
-        list = res.data['data'] as List;
+        list = res.data['data']['data'] as List;
       } catch (e) {
         list = res.data as List;
       }
