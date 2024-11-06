@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 //打开第三方app
 import 'dart:convert';

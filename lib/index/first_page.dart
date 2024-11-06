@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 import 'dart:async';
 import 'dart:convert';
@@ -260,7 +260,7 @@ class _FirstPageState extends State<FirstPage> {
     });
     if (res != null) {
       var json = jsonDecode(res.body);
-      brandListDm.addList(json, true, 10);
+      brandListDm.addList(json['data'], true, 10);
     }
     setState(() {});
     return brandListDm.flag;

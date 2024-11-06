@@ -10,7 +10,7 @@
       "internalID" : "AE10D05D",
       "localizations" : [
         {
-          "description" : "苏分宝星选月会员",
+          "description" : "天天淘星选月会员",
           "displayName" : "星选月会员",
           "locale" : "zh_CN"
         }
@@ -25,7 +25,7 @@
       "internalID" : "4B81605A",
       "localizations" : [
         {
-          "description" : "苏分宝淘星选年会员",
+          "description" : "天天淘淘星选年会员",
           "displayName" : "淘星选年会员",
           "locale" : "zh_CN"
         }
@@ -40,7 +40,7 @@
       "internalID" : "8E2C0382",
       "localizations" : [
         {
-          "description" : "苏分宝京星选年会员",
+          "description" : "天天淘京星选年会员",
           "displayName" : "京星选年会员",
           "locale" : "zh_CN"
         }
@@ -55,7 +55,7 @@
       "internalID" : "867E8D7E",
       "localizations" : [
         {
-          "description" : "苏分宝多星选年会员",
+          "description" : "天天淘多星选年会员",
           "displayName" : "多星选年会员",
           "locale" : "zh_CN"
         }
@@ -70,7 +70,7 @@
       "internalID" : "BFA17CCC",
       "localizations" : [
         {
-          "description" : "苏分宝抖星选年会员",
+          "description" : "天天淘抖星选年会员",
           "displayName" : "抖星选年会员",
           "locale" : "zh_CN"
         }
@@ -85,7 +85,7 @@
       "internalID" : "B4C9BCF3",
       "localizations" : [
         {
-          "description" : "苏分宝唯星选年会员",
+          "description" : "天天淘唯星选年会员",
           "displayName" : "唯星选年会员",
           "locale" : "zh_CN"
         }

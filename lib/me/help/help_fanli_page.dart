@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';

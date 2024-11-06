@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 /*
  * @discripe: 业务层方法
@@ -870,13 +870,13 @@ abstract class BService {
     var res = await suClient.get(
       API.banners,
     );
-    return res.data['data']['bannerInfo'];
+    return res.data['data'];
   }
   static Future<List> tiles() async {
     var res = await suClient.get(
       API.tiles,
     );
-    return res.data['data']['tilesInfo'];
+    return res.data['data'];
   }
   static Future<Map> kuCustomCate(id) async {
     var res = await suClient.get(
@@ -1158,7 +1158,7 @@ abstract class BService {
     await setAuthInfo();
     var res = await suClient.post(
       API.userHistorySave,
-      data: keyword
+      data: {keyword:keyword}
     );
     return res.data['data'];
   }

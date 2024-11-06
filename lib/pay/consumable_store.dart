@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';

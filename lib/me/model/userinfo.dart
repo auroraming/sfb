@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 //后面再去研究自动生成对象 目前看起来版本不兼容
 //https://pub.flutter-io.cn/documentation/build_runner/2.1.9/

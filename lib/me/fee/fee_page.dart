@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/foundation.dart';

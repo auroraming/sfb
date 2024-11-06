@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 library base;
 
@@ -40,7 +40,7 @@ import '../widget/loading.dart';
 import 'launchApp.dart';
 import 'login_util.dart';
 
-const String APP_NAME = '苏分宝';
+const String APP_NAME = '天天淘';
 const String COMPANY_NAME = '';
 //todo 闪验appid
 const String SY_ANDROID_APP_ID = '';

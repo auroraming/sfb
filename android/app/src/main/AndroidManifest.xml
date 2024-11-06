@@ -73,7 +73,7 @@
 
     <application
         android:name="${applicationName}"
-        android:label="苏分宝"
+        android:label="天天淘"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"
         tools:replace="android:label,android:allowBackup"

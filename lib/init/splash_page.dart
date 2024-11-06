@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 //APP启动页
 import 'package:awesome_dialog/awesome_dialog.dart';

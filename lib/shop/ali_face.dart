@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 import 'package:flutter_ali_face_verify/flutter_ali_face_verify.dart';
 

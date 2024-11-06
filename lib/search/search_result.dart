@@ -1,6 +1,6 @@
 /**
  *  Copyright (C) 2018-2024
- *  All rights reserved, Designed By www.mailvor.com
+
  */
 import 'dart:async';
 
@@ -24,8 +24,8 @@ var tabList = [
   {'name': '淘宝', 'img': 'assets/images/mall/tb.png'},
   {'name': '拼多多', 'img': 'assets/images/mall/pdd.png'},
   {'name': '京东', 'img': 'assets/images/mall/jd.png'},
-  {'name': '抖音', 'img': 'assets/images/mall/dy.png'},
-  {'name': '唯品会', 'img': 'assets/images/mall/vip.png'},
+  // {'name': '抖音', 'img': 'assets/images/mall/dy.png'},
+  // {'name': '唯品会', 'img': 'assets/images/mall/vip.png'},
 ];
 
 ///搜索结果页
