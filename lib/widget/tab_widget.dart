@@ -85,6 +85,7 @@ class _TabWidgetState extends State<TabWidget> with TickerProviderStateMixin {
             physics: MyBouncingScrollPhysics(),
             indicatorSize: TabBarIndicatorSize.label,
             // indicatorPadding: EdgeInsets.symmetric(horizontal: 8),
+            labelPadding: EdgeInsets.symmetric(horizontal: 65),
             isScrollable: widget.isScrollable ?? true,
             indicatorWeight: widget.indicatorWeight ?? 4,
             indicatorColor: (widget.indicatorColor ?? Colors.white),

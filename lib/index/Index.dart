@@ -47,8 +47,8 @@ class _IndexState extends State<Index>
     _widgetOptions = [
       HomePage(),
       // LocalPage(),
-      TopPage(data: {'showArrowBack': false},),
-      SearchPage(data:{'showArrowBack': false,'autoFocus':false}),
+      // TopPage(data: {'showArrowBack': false},),
+      // SearchPage(data:{'showArrowBack': false,'autoFocus':false}),
       MySelfPage()
     ];
   }
@@ -87,14 +87,14 @@ class _IndexState extends State<Index>
       ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          padding: const EdgeInsets.symmetric( horizontal: 75.0, vertical: 8),
           child: GNav(
             rippleColor: Colors.grey.shade300,
             hoverColor: Colors.grey.shade100,
             gap: 8,
             activeColor: Colors.black,
             iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
             duration: Duration(milliseconds: 400),
             tabBackgroundColor: Colors.grey.shade100,
             color: Colors.black,
@@ -119,14 +119,14 @@ class _IndexState extends State<Index>
       //   icon: BaoIcons.love,
       //   text: '团购',
       // ),
-      GButton(
-        icon: BaoIcons.love,
-        text: '榜单',
-      ),
-      GButton(
-        icon: BaoIcons.search,
-        text: '搜索',
-      ),
+      // GButton(
+      //   icon: BaoIcons.love,
+      //   text: '榜单',
+      // ),
+      // GButton(
+      //   icon: BaoIcons.search,
+      //   text: '搜索',
+      // ),
       GButton(
         icon: BaoIcons.user,
         text: '我的',

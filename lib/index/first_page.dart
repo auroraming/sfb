@@ -27,6 +27,7 @@ import 'package:sufenbao/widget/CustomWidgetPage.dart';
 // import '../login/login_shanyan.dart';
 import '../me/listener/WxPayNotifier.dart';
 import '../page/product_details.dart';
+import '../search/search_bar_widget.dart';
 import '../shop/ali_face.dart';
 import '../util/colors.dart';
 import '../util/global.dart';
@@ -252,6 +253,7 @@ class _FirstPageState extends State<FirstPage> {
     return searchDm.flag;
   }
 
+
   ///品牌特卖
   var brandListDm = DataModel();
   Future<int> getBrandList({int page = 1, bool isRef = false}) async {
@@ -420,40 +422,41 @@ class _FirstPageState extends State<FirstPage> {
     List cardHot = cardDm.value;
     List brandList = brandListDm.list;
     return [
-      (bannerDm.list != null && bannerDm.list.isNotEmpty)
-          ? BannerWidget(bannerDm, (v){
-          Global.kuParse(context, v);
-      }):
-          //没网络时显示默认图片
-      AspectRatio(
-          aspectRatio: (750+8) / (280 + 24),
-          child: PWidget.image('assets/images/mall/bannerholder.png',
-          {'br': 8, 'pd': [8,8,8,8]})),
+      // (bannerDm.list != null && bannerDm.list.isNotEmpty)
+      //     ? BannerWidget(bannerDm, (v){
+      //     Global.kuParse(context, v);
+      // }):
+      //     //没网络时显示默认图片
+      // AspectRatio(
+      //     aspectRatio: (750+8) / (280 + 24),
+      //     child: PWidget.image('assets/images/mall/bannerholder.png',
+      //     {'br': 8, 'pd': [8,8,8,8]})),
+
       ///菜单
       const MenuWidget(),
       //圆形轮播图
-      (tilesDm.list != null && tilesDm.list.isNotEmpty)
-          ? TilesWidget(tilesDm):
-      AspectRatio(
-        aspectRatio: 710 / (170 + 30),
-        child: PWidget.image('assets/images/mall/tileholder.png', {'br': 8, 'pd': [16,8,8,8]})
-      ),
+      // (tilesDm.list != null && tilesDm.list.isNotEmpty)
+      //     ? TilesWidget(tilesDm):
+      // AspectRatio(
+      //   aspectRatio: 710 / (170 + 30),
+      //   child: PWidget.image('assets/images/mall/tileholder.png', {'br': 8, 'pd': [16,8,8,8]})
+      // ),
 
       // ///大家都在领
       // (searchDm.list != null && searchDm.list.isNotEmpty)
       //     ? EveryoneWidget(searchDm):SizedBox(height: 250,),
       //
       ///卡片
-      if(!(cardGoodsList == null || cardGoodsList.isEmpty || cardHot == null || cardHot.isEmpty))
-        CardWidget(cardDm),
-
-      //品牌特卖
-      if(brandList != null && brandList.isNotEmpty)
-        BrandWidget(brandListDm),
-
-      if (listDm.list.isNotEmpty)
-        PWidget.text(
-            '店铺好货', [Colors.black.withOpacity(0.75), 16, true], {'ct': true}),
+      // if(!(cardGoodsList == null || cardGoodsList.isEmpty || cardHot == null || cardHot.isEmpty))
+      //   CardWidget(cardDm),
+      //
+      // //品牌特卖
+      // if(brandList != null && brandList.isNotEmpty)
+      //   BrandWidget(brandListDm),
+      //
+      // if (listDm.list.isNotEmpty)
+      //   PWidget.text(
+      //       '店铺好货', [Colors.black.withOpacity(0.75), 16, true], {'ct': true}),
     ];
   }
 
