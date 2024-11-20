@@ -5,12 +5,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
+import 'package:sufenbao/custom/user_dashboard_page.dart';
 import 'package:sufenbao/index/provider/home_provider.dart';
-import 'package:sufenbao/me/myself.dart';
-import 'package:sufenbao/search/search_page.dart';
 import 'package:sufenbao/util/bao_icons.dart';
 
-import '../page/top_page.dart';
 import '../widget/double_tap_back_exit_app.dart';
 import 'home_page.dart';
 
@@ -18,23 +16,25 @@ import 'home_page.dart';
 class Index extends StatefulWidget {
   const Index({Key? key, this.index}) : super(key: key);
   final int? index;
+
   @override
   State<StatefulWidget> createState() => _IndexState();
 }
 
-class _IndexState extends State<Index>
-    with RestorationMixin {
+class _IndexState extends State<Index> with RestorationMixin {
   HomeProvider provider = HomeProvider();
   late PageController _pageController;
 
   bool agree = false;
+
   //实现监听flutter中App的一些状态， 比如 进入前后台
   @override
   void initState() {
     initData();
     super.initState();
-    _pageController = PageController(initialPage: widget.index??0,);
-
+    _pageController = PageController(
+      initialPage: widget.index ?? 0,
+    );
   }
 
   @override
@@ -49,9 +49,10 @@ class _IndexState extends State<Index>
       // LocalPage(),
       // TopPage(data: {'showArrowBack': false},),
       // SearchPage(data:{'showArrowBack': false,'autoFocus':false}),
-      MySelfPage()
+      UserDashboardPage()
     ];
   }
+
   late List<Widget> _widgetOptions;
 
   @override
@@ -59,7 +60,7 @@ class _IndexState extends State<Index>
     return ChangeNotifierProvider<HomeProvider>(
         create: (_) => provider,
         child: DoubleTapBackExitApp(
-          child: Scaffold(
+            child: Scaffold(
           backgroundColor: Colors.white,
           body: PageView(
             physics: const NeverScrollableScrollPhysics(), // 禁止滑动
@@ -87,7 +88,7 @@ class _IndexState extends State<Index>
       ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric( horizontal: 75.0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 75.0, vertical: 8),
           child: GNav(
             rippleColor: Colors.grey.shade300,
             hoverColor: Colors.grey.shade100,
@@ -99,7 +100,7 @@ class _IndexState extends State<Index>
             tabBackgroundColor: Colors.grey.shade100,
             color: Colors.black,
             tabs: getTabs(),
-            selectedIndex: widget.index ??provider.value,
+            selectedIndex: widget.index ?? provider.value,
             onTabChange: (index) {
               _pageController.jumpToPage(index);
             },
@@ -141,5 +142,4 @@ class _IndexState extends State<Index>
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(provider, 'BottomNavigationBarCurrentIndex');
   }
-
 }

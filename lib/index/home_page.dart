@@ -14,6 +14,7 @@ import 'package:maixs_utils/widget/views.dart';
 import 'package:sufenbao/service.dart';
 import 'package:sufenbao/widget/tab_widget.dart';
 
+import '../custom/slivertab_page.dart';
 import '../me/model/userinfo.dart';
 import '../search/search_bar_widget.dart';
 import '../util/global.dart';
@@ -116,34 +117,12 @@ class _HomePageState extends State<HomePage>
         brightness: Brightness.dark,
         appBar: titleBarView(),
         bgColor: Colors.transparent,
-        body: PWidget.container(
-          tabDm.list.length == 1
-              ? FirstPage()
-              : AnimatedSwitchBuilder(
-                  value: tabDm,
-                  errorOnTap: () => this.getTabData(),
-                  // initialState: buildLoad(color: Colors.grey),
-                  initialState: PWidget.container(null, [double.infinity]),
-                  listBuilder: (list, _, __) {
-                    var tabList =
-                        list.map<String>((m) => (m! as Map)['cname']).toList();
-                    return TabWidget(
-                      tabList: tabList,
-                      color: Colors.black,
-                      indicatorColor: Colors.red,
-                      fontSize: 14,
-                      indicatorWeight: 2,
-                      tabPage: List.generate(tabList.length, (i) {
-                        return i == 0 ? FirstPage() : OtherPage(list[i] as Map);
-                      }),
-                    );
-                  },
-                ),
-          [null, null, Color(0xffF6F6F6)],
-          {
-            'crr': PFun.lg(16, 16),
-          },
-        ),
+        body: Column(children: [
+          // 原有逻辑内容
+          Expanded(
+            child: TabPage(),
+          ),
+        ]),
       )
     ]));
   }
@@ -245,66 +224,30 @@ class _HomePageState extends State<HomePage>
 
   ///标题栏视图
   Widget titleBarView() {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(80), // 自定义高度
-      child: AppBar(
-        flexibleSpace: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // PWidget.container(
-              //   PWidget.row([
-              //     PWidget.boxw(16),
-              //     Text(
-              //       "天天淘",
-              //       style: TextStyle(
-              //         fontSize: 16, // 设置字体大小为 16
-              //         color: Color(0xFF3097FF),
-              //       ),
-              //     ),
-              //     Expanded(child: Container()), // 占据剩余的空间
-              //     // 系统通知
-              //     PWidget.image("assets/images/title.png", [
-              //       24,
-              //       24
-              //     ], {
-              //       'fun': () {
-              //         // 跳转
-              //         // Navigator.pushNamed(context, '/messageCenter');
-              //       }
-              //     }),
-              //     PWidget.boxw(16),
-              //   ]),
-              //   [null, 56 + pmPadd.top],
-              //   {'pd': PFun.lg(pmPadd.top + 8, 8)},
-              // ),
-              // PWidget.container(
-              //   PWidget.row([
-              //     PWidget.boxw(16),
-              //     SearchBarWidget(
-              //       '',
-              //       searchRankingListDm,
-              //       readOnly: true,
-              //       onChanged: (v) {},
-              //       onSubmit: (v, t) {
-              //         // navigatorToSearchPage();
-              //       },
-              //       onClear: () {},
-              //       onTap: (f) {
-              //         // navigatorToSearchPage();
-              //       },
-              //     ),
-              //     PWidget.boxw(16),
-              //   ]),
-              //   [null, 56 + pmPadd.top],
-              //   {'pd': PFun.lg(pmPadd.top + 8, 8)},
-              // ),
-            ],
+    return Container(
+        margin: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding:const EdgeInsets.symmetric(vertical: 10.0),
+        color: Colors.white,
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Text(
+            "天天淘",
+            style: TextStyle(
+              fontSize: 16, // 设置字体大小为 16
+              color: Color(0xFF3097FF),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-      ),
-    );
+          // 系统通知
+          PWidget.image("assets/images/title.png", [
+            24,
+            24
+          ], {
+            'fun': () {
+              // 跳转
+              // Navigator.pushNamed(context, '/messageCenter');
+            }
+          }),
+        ]));
   }
 }

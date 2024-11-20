@@ -33,6 +33,7 @@ import '../util/colors.dart';
 import '../util/global.dart';
 import '../util/paixs_fun.dart';
 import '../util/tao_util.dart';
+import '../custom/earning_page.dart';
 import 'widget/brand_widget.dart';
 import 'widget/card_widget.dart';
 import 'widget/menu_widget.dart';
@@ -434,6 +435,8 @@ class _FirstPageState extends State<FirstPage> {
 
       ///菜单
       const MenuWidget(),
+
+      EarningsPage(),
       //圆形轮播图
       // (tilesDm.list != null && tilesDm.list.isNotEmpty)
       //     ? TilesWidget(tilesDm):

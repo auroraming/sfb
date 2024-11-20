@@ -53,11 +53,11 @@ dependencies:
   tobias:
     git:
       url: https://gitee.com/jacky4631/tobias.git
-#      url: https://github.com/jacky4631/tobias.git
+  #      url: https://github.com/jacky4631/tobias.git
   flutter_alibc:
     git:
       url: https://gitee.com/jacky4631/flutter_alibc_kit.git
-#      url: https://github.com/jacky4631/flutter_alibc_kit.git
+  #      url: https://github.com/jacky4631/flutter_alibc_kit.git
   decimal: ^2.3.0
   chewie: ^1.8.1
   shimmer: ^3.0.0
@@ -114,6 +114,8 @@ flutter:
     - assets/images/help/
     - assets/images/energy/
     - assets/key/
+    - assets/images/custom/menu/
+    - assets/images/custom/me/
   fonts:
     - family: BaoIcons
       fonts:
